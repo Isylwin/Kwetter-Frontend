@@ -1,0 +1,17 @@
+.bio {
+  color: #808080;
+  font-style: italic;
+}
+
+.name {
+  font-size: large;
+  font-weight: bold;
+}
+
+.username {
+  font-size: smaller;
+}
+
+.no-padding {
+  padding-left: 0 !important;
+}

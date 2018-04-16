@@ -1,0 +1,57 @@
+<script>
+
+</script>
+
+<div class="container card bg-white mb-2">
+  <div class="row card-header">
+    <div class="col-sm-4 no-padding">
+      <img src="{{profile.photo}}"
+           class="rounded-circle" width="100rm" height="100rm"/>
+    </div>
+    <div class="col-sm-8">
+      <div class="name">{{profile.name}}</div>
+      <div class="card-title username">@{{profile.username}}</div>
+      <div class="bio">{{profile.bio}}</div>
+    </div>
+  </div>
+  <div class="row card-body">
+    <div class="col-sm-4">
+      <div><b>{{profile.kwetters}}</b></div>
+      <div>Kwetters</div>
+    </div>
+    <div class="col-sm-4">
+      <div><b>{{profile.followers}}</b></div>
+      <div>Followers</div>
+    </div>
+    <div class="col-sm-4">
+      <div><b>{{profile.following}}</b></div>
+      <div>Following</div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <input type="text" placeholder="Compose new Kwetter..." class="form-control" id="kwetter" data-toggle="modal" data-target="#kwetterModal">
+
+    <div class="modal fade" id="kwetterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">What's happening?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <textarea class="form-control" rows="5" id="comment" maxlength="140" (keypress)="charRemaining($event)"></textarea>
+              <span id="chars">140</span> characters remaining.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="sendKwetter($event)" data-dismiss="modal">Kwetter!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
