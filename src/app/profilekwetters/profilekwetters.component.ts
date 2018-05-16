@@ -2,24 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import {MESSAGES} from '../message/mockMessages';
 import {ApiService} from '../api.service';
 import {Message} from '../message/message';
-import {WebsocketService} from '../websocket.service';
+import {User} from '../user';
 
 @Component({
-  selector: 'app-timeline',
-  templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.css']
+  selector: 'app-profilekwetters',
+  templateUrl: './profilekwetters.component.html',
+  styleUrls: ['./profilekwetters.component.css']
 })
-export class TimelineComponent implements OnInit {
+export class ProfilekwettersComponent implements OnInit {
 
   messages: Message[] = [];
+  user: User;
 
   constructor(
-    private api: ApiService,
-    private websocket: WebsocketService
+    private api: ApiService
   ) { }
 
   ngOnInit() {
-    this.api.getAllKwetters()
+    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    this.api.getKwettersForUser(this.user.id)
       .subscribe(
         (messages) => {
           this.messages = messages;
@@ -29,11 +31,6 @@ export class TimelineComponent implements OnInit {
           this.getUsers();
         }
       );
-
-    this.websocket.getSocket().onmessage = m => {
-      this.messages.unshift(JSON.parse(m.data));
-      this.getUsers();
-    };
   }
 
   getUsers() {
@@ -49,4 +46,5 @@ export class TimelineComponent implements OnInit {
       }
     );
   }
+
 }

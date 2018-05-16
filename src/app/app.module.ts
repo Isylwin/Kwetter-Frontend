@@ -28,6 +28,7 @@ import {JwtInterceptor} from './jwt.interceptor';
 import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ApiService } from './api.service';
+import {WebsocketService} from './websocket.service';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [AuthGuard]},
@@ -78,7 +79,8 @@ const routes: Routes = [
       multi: true
     },
 
-    ApiService
+    ApiService,
+    WebsocketService
   ],
   bootstrap: [AppComponent]
 })

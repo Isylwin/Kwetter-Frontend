@@ -1,0 +1,27 @@
+<div class="container bg-light rounded mb-2">
+  <div class="row p-2">
+    <div class="col-md-5 border-right p-2">
+      <img src="{{user.information.photo}}" class="rounded-circle" width="200rm" height="200rm">
+    </div>
+    <div class="col-md-7">
+      <h2>{{user.information.name}}</h2>
+      <div class="bio mb-5">@{{user.credentials.username}}</div>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="text-center"><b>Kwetters</b></div>
+          <div class="text-center"><a href="#">10</a></div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center"><b>Followers</b></div>
+          <div class="text-center"><a href="#">{{user.followers.length}}</a></div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center"><b>Following</b></div>
+          <div class="text-center"><a href="#">{{user.following.length}}</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
